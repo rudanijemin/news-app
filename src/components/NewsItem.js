@@ -10,7 +10,7 @@ export class NewsItem extends Component {
           <img src={!imageUrl?"https://c.ndtvimg.com/indian-flag-tricolour-generic-pixabay_625x300_1529830758454.jpg":imageUrl} className="card-img-top" alt="..."/>
           {/* koi image n hoi to  */}
           <div className="card-body">
-          <span class="position-absolute top-0  translate-middle badge rounded-pill bg-danger">{source}</span>
+          <span className="position-absolute top-0  translate-middle badge rounded-pill bg-danger">{source}</span>
             
             <h5 className="card-title">{title}</h5>
           
