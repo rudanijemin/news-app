@@ -7,6 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
+
 export default class News extends Component {
   static defaultProps={
     country:'in',
@@ -32,15 +33,19 @@ export default class News extends Component {
     document.title=`${this.Capitalize(this.props.category)}-News`;
   }
   async updateNews(){
+    this.props.setProgress(10);
     let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e06dec00d91346d89993e9c7faee0e31&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
+    this.props.setProgress(50);
     let parseData = await data.json()
+    this.props.setProgress(70);
     console.log(parseData);
     this.setState({articles:parseData.articles  , 
         totalResults:parseData.totalResults,
         loading:false
       })
+      this.props.setProgress(100);
   }
   async componentDidMount(){
     this.updateNews();

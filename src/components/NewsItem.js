@@ -5,13 +5,22 @@ export class NewsItem extends Component {
     let {title,discription,imageUrl,newsUrl,author,date,source}  = this.props;
 
     return (
-      <div className="container my-3">
+      <div className="container my-4">
         <div className="card" style={{width: "18rem"}}>
+          <div style={{
+               display:'flex',
+               justifyContent:'flex-end',
+               position:'absolute',
+               right:0
+          }} >
+            <span className ="badge rounded-pill bg-danger">{source}</span>
+
+          </div>
+
+          
           <img src={!imageUrl?"https://c.ndtvimg.com/indian-flag-tricolour-generic-pixabay_625x300_1529830758454.jpg":imageUrl} className="card-img-top" alt="..."/>
           {/* koi image n hoi to  */}
           <div className="card-body">
-          <span className="position-absolute top-0  translate-middle badge rounded-pill bg-danger">{source}</span>
-            
             <h5 className="card-title">{title}</h5>
           
             <p className="card-text">{discription}</p>
